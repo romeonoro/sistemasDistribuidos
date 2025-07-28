@@ -25,4 +25,11 @@
   - sistema de nobreak robusto
   - sistema de backup
   - programação paralela
+
+# Processo 
+- demanda recurso (hardware) -> preocessador, barramento, ram+cache, periféricos
+
+# Thread
+- Simples -> sem dependência de dados
+- Memória Compartilhada -> dado(s)
     
