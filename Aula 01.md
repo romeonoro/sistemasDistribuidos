@@ -14,7 +14,7 @@
 ### Sincronismo
 - relógio
 - monitor ou semáforo
-- fila
+- fila (exclusão mútua)
 ### Tolerância a falhas
 
 # Sistemas Paralelos
