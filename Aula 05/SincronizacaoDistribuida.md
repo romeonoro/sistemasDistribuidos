@@ -1,61 +1,60 @@
 ## Relógios Físicos
-- Baseados no tempo real do hardware (UTC).
-- Problema: desvios de clock (clock drift) → cada máquina pode medir o tempo em ritmos diferentes.
-- Solução: protocolos como NTP (Network Time Protocol) para sincronizar com uma referência confiável.
-- Uso: registro de logs, coordenação de eventos em tempo real.
-- Exemplo bancário: sincronizar horários de transações entre diferentes agências.
+- Baseados no tempo real (UTC).
+- Problema: cada relógio da casa pode marcar horários diferentes.
+- Solução: sincronizar todos os relógios (ex.: ajustar pelo horário oficial).
+- Uso: coordenação de eventos em tempo real.
+- Exemplo do banheiro: os relógios ajudam a decidir quem realmente chegou primeiro para usar o banheiro.
 
 ---
 
 ## Relógios Lógicos
 - Não medem tempo real, apenas ordenam eventos.
-- Garantem a ordem causal entre processos.
+- Garantem ordem causal entre processos.
 - Relógio de Lamport: fornece uma ordem parcial dos eventos.
-- Uso: consistência de mensagens, evitar problemas em sistemas distribuídos.
-- Exemplo bancário: garantir que uma transferência seja debitada antes de ser creditada em outra conta.
+- Uso: consistência na execução de eventos.
+- Exemplo do banheiro: mesmo sem relógio, sabemos que quem entrou primeiro no corredor chegou antes na fila do banheiro.
 
 ---
 
 ## Exclusão Mútua
 - Garante que apenas um processo por vez acesse a região crítica.
 - Regras:
-  - Mutual Exclusion → apenas um no recurso.
-  - Progress → se livre, alguém deve entrar.
-  - Bounded Waiting → nenhum processo espera indefinidamente.
+  - Mutual Exclusion → apenas uma pessoa no banheiro por vez.
+  - Progress → se o banheiro está livre, alguém da fila deve entrar.
+  - Bounded Waiting → ninguém fica esperando para sempre.
 - Implementações:
-  - Centralizada (coordenador único).
-  - Distribuída (Ricart-Agrawala, token ring).
-- Exemplo bancário: dois caixas eletrônicos não podem atualizar o saldo da mesma conta simultaneamente.
+  - Centralizada: uma pessoa da casa (coordenador) controla quem entra.
+  - Distribuída: todos combinam regras (quem pede primeiro, quem tem prioridade).
+- Exemplo do banheiro: impedir que duas pessoas entrem ao mesmo tempo.
 
 ---
 
 ## Algoritmos de Eleição
-- Definem qual processo será o coordenador/líder em caso de falha.
+- Usados para decidir quem será o coordenador/líder.
 - Exemplos:
-  - Bully → maior ID vence.
-  - Ring → maior ID sobrevive após circular no anel.
+  - Bully → a pessoa de maior autoridade decide quem entra.
+  - Ring → cada pessoa sugere uma ordem, até restar uma decisão final.
 - Uso: coordenação e tolerância a falhas.
-- Exemplo bancário: escolher o servidor principal responsável por autorizar transações caso o atual falhe.
+- Exemplo do banheiro: se não há ninguém organizando a fila, os próprios moradores decidem entre si quem entra primeiro.
 
 ---
 
 ## Sincronismo e Acesso à Seção Crítica
-- Garante acesso seguro de múltiplos processos a recursos críticos.
+- Garante que vários processos acessem recursos de forma organizada.
 - Ferramentas em linguagens:
   - Java → `synchronized`
   - C#/Python → `lock`
 - Relações:
-  - Relógios → ajudam na ordenação de eventos.
-  - Exclusão mútua → controla quem acessa o recurso.
-  - Eleição → define quem coordena o acesso.
-- Exemplo bancário: garantir que apenas uma operação de saque seja processada por vez para a mesma conta.
+  - Relógios → ajudam a saber a ordem de chegada.
+  - Exclusão mútua → só uma pessoa no banheiro.
+  - Eleição → decidir quem coordena a fila.
+- Exemplo do banheiro: a fila na porta garante que cada pessoa use o banheiro na sua vez.
 
 ---
 
 # Resumo com o Exemplo do Banheiro
-
-- Relógios Físicos: todos os relógios de parede da casa precisam estar sincronizados para saber quem chegou primeiro.
-- Relógios Lógicos: mesmo sem olhar a hora, sabemos que a pessoa entrou antes de outra porque havia uma ordem de chegada.
-- Exclusão Mútua: apenas uma pessoa pode usar o banheiro de cada vez.
-- Eleição: se houver várias pessoas esperando, elas podem combinar uma regra para decidir quem entra primeiro (por exemplo, o mais velho ou quem chegou antes).
-- Sincronismo: a fila garante que cada pessoa terá acesso ao banheiro sem que duas entrem ao mesmo tempo.
+- Relógios Físicos: quem chegou primeiro pode ser decidido pelo horário do relógio.
+- Relógios Lógicos: mesmo sem relógio, sabemos a ordem de chegada na fila.
+- Exclusão Mútua: apenas uma pessoa no banheiro por vez.
+- Eleição: se não houver fila organizada, os moradores decidem regras de prioridade.
+- Sincronismo: a fila garante que ninguém entre ao mesmo tempo.
