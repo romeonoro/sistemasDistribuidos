@@ -1,5 +1,8 @@
 # Quadro Branco
 
+- crontab
+- preemptar
+
 ## Aula 5 - Sincronização Distribuída – Relógios Físicos e Lógicos. Exclusão Mútua e Eleição.
     - Teoria básica de sistemas distribuídos
         - o que é e para que serve -> compartilhar recurso (cpu, ram, memória secundária)
