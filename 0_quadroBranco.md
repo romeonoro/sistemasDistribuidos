@@ -1,7 +1,52 @@
 # Quadro Branco
+## Aula 11 - Remote Procedure Call (RPC)
+    - Tecnologia ou um recurso em que máquinas (sem poder computacional | clientes) solicitam processos em outra máquina (com poder computacional | servidor)
+    - A relação entre clientes e servidor vai se dar por serviços via Interface
+    - Exemplo:
+        Cliente                                 Servidor
+         - Classe Client                         - Classe Server: ip, porta, socket, ...
+         - 'Menu' de Serviços                        - IServicos - ou a implementação dos serviços/métodos
+                                                     - servico1()
+                                                     - servico2()
+    - RPC é técnica ou o recurso
+        Python: RPC
+        C#: xmlRpc
+        Java: Remote Method Invocation
 
-- crontab
-- preemptar
+
+## Aula 10 - Programação Socket UDP
+    - Exemplo de código UDP
+    - Jogo da cobrinha com sockets: adaptar o jogo da pasta https://github.com/alexandrezamberlan/sistemasDistribuidos/tree/master/4-ThreadSocketCobrinha
+        **Ciência da Computação**
+            - No cliente, adicionar informações no form de: ip e porta do servidor; placar do jogo; obstáculos (usar matriz ou compononente gráfico equivalente)
+            - No servidor, adicionar informações do form de: placar do jogo; jogar novamente; obstáculos (usar matriz ou compononente gráfico equivalente)
+        **Sistemas de Informação**
+            - No cliente, adicionar informações no form de: ip e porta do servidor; placar do jogo
+            - No servidor, adicionar informações do form de: placar do jogo; jogar novamente
+    - Gerador de códigos (como o Google Authenticator)
+        - em algum lado (servidor ou cliente) ter uma lista de frutas (8 frutas)
+        - toda vez que alguem conectar envvia um fruta sorteada a quem se conectou
+
+## Aula 9 - Programação Socket com Classe Comunicador
+    - Diferença entre TCP e UDP
+    - Atividade avaliativa:
+        - Refatorar o código Socket do Gerar Email: https://github.com/alexandrezamberlan/sistemasDistribuidos/tree/master/3-Sockets/src/exemplo2_gerarEmail
+            - incluir modo gráfico e classe Comunicador
+
+## Aula 8 - Programação Socket em Java + modo gráfico
+    - Uso de sockets
+        - arquitetura cliente-servidor: chat (tanto servidor, quanto cliente escreviam e liam no socket)
+        - arquitetura cliente-servidor: servidor é um prestador de serviço. Instancia/conecta, recebe cliente, processa, devolve, fecha e recomeça o ciclo
+
+## Aula 7 - Correção e Discussão da Prova + Socket
+    - Socket é um recurso de baixo nível
+    - Conecta 2 máquinas
+    - Usa o modelo TCP/IP: endereço IP, porta lógica
+    - Estrutura clássica para a arquitetura cliente-servidor
+        - servidor (java): ServerSocket (porta logica autorizada) + Socket (representando o cliente) + leitor (input) e escritor (output) de socket + threads para não bloquear a comunicação
+        - cliente: Socket (endereço ip + porta lógica do servidor) + leitor (input) e escritor (output)
+
+## Aula 6 - Avaliação
 
 ## Aula 5 - Sincronização Distribuída – Relógios Físicos e Lógicos. Exclusão Mútua e Eleição.
     - Teoria básica de sistemas distribuídos
